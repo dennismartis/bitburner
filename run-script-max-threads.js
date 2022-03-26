@@ -12,6 +12,7 @@ export async function main(ns) {
     const scriptRam = ns.getScriptRam(script);
     const threads = Math.floor(maxRam / scriptRam);
     if (node.hasAdminRights) {
+      ns.killall(hostname);
       if (ns.fileExists(script)) {
         ns.rm(script, hostname);
       }
