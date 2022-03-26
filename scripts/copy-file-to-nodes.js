@@ -1,4 +1,4 @@
-import { getNodesWithAdminRights } from "./utils.js";
+import { getNodesWithAdminRights } from "./scripts/utils.js";
 /** @param {NS} ns **/
 export async function main(ns) {
   const file = ns.args[0];
