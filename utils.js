@@ -6,6 +6,7 @@ export function getConnectedNodes(ns, host) {
     for (const scan of scanList) {
       if (!scannedNodes.includes(scan)) {
         scannedNodes.push(scan);
+        console.log("test");
       }
     }
   }
