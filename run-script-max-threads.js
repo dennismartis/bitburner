@@ -8,10 +8,14 @@ export async function main(ns) {
   for (let i = 0; i < connectedNodes.length; i++) {
     const node = connectedNodes[i];
     const hostname = connectedNodes[i].hostname;
+    const maxRam = node.maxRam;
+    const scriptRam = ns.getScriptRam(script);
+    const threads = Math.floor(maxRam / scriptRam);
     if (node.hasAdminRights) {
-      const maxRam = node.maxRam;
-      const scriptRam = ns.getScriptRam(script);
-      const threads = Math.floor(maxRam / scriptRam);
+      if (ns.fileExists(script)) {
+        ns.rm(script, hostname);
+      }
+      await ns.scp(script, "home", hostname);
       ns.exec(script, hostname, threads, target);
     }
   }
