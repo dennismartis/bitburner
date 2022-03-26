@@ -1,4 +1,4 @@
-/** @param {NS} ns **/
+/** @param {import(".").NS } ns */
 export function getConnectedNodes(ns, host = "home") {
   const scannedNodes = [host];
   for (const node of scannedNodes) {
