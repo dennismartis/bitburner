@@ -8,9 +8,11 @@ export async function main(ns) {
   for (let i = 0; i < connectedNodes.length; i++) {
     const node = connectedNodes[i];
     const hostname = connectedNodes[i].hostname;
-    const maxRam = node.maxRam;
-    const scriptRam = ns.getScriptRam(script);
-    const threads = Math.floor(maxRam / scriptRam);
-    ns.exec(script, hostname, threads, target);
+    if (node.hasAdminRights) {
+      const maxRam = node.maxRam;
+      const scriptRam = ns.getScriptRam(script);
+      const threads = Math.floor(maxRam / scriptRam);
+      ns.exec(script, hostname, threads, target);
+    }
   }
 }
