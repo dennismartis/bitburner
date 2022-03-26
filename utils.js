@@ -9,7 +9,9 @@ export function getConnectedNodes(ns, host = "home") {
       }
     }
   }
-  const home = scannedNodes.findIndex("home");
-  scannedNodes.splice(home, 1);
+  const home = scannedNodes.indexOf(host);
+  if (home > -1) {
+    scannedNodes.splice(home, 1);
+  }
   return scannedNodes;
 }
