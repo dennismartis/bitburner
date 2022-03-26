@@ -13,5 +13,10 @@ export function getConnectedNodes(ns, host = "home") {
   if (home > -1) {
     scannedNodes.splice(home, 1);
   }
-  return scannedNodes;
+  const nodeObjects = [];
+  for (const host of scannedNodes) {
+    const object = ns.getServer(host);
+    nodeObjects.push(object);
+  }
+  return nodeObjects;
 }
