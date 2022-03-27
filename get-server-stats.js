@@ -8,7 +8,7 @@ export async function main(ns) {
 
   ns.tprint(`${hostname} stats\n============= `);
   ns.tprint(`Money available: ${nodeObject.moneyAvailable}`);
-  ns.tprint(`Max money: ${nodeObject.maxMoney}`);
+  ns.tprint(`Max money: ${nodeObject.moneyMax}`);
   ns.tprint(`Base difficulty: ${nodeObject.baseDifficulty}`);
   ns.tprint(`Min difficulty: ${nodeObject.minDifficulty}`);
   ns.tprint(`Hack difficulty: ${nodeObject.hackDifficulty}`);
