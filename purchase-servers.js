@@ -1,6 +1,8 @@
 /** @param {import(".").NS } ns */
-export async function main(ns, ram, script = "early-hack-script.js") {
+export async function main(ns) {
   // Iterator we'll use for our loop
+  ram = ns.args[0];
+  script = ns.args[1] || "early-hack-script.js";
   var i = 0;
 
   // Continuously try to purchase servers until we've reached the maximum
@@ -20,6 +22,7 @@ export async function main(ns, ram, script = "early-hack-script.js") {
       await ns.scp(script, hostname);
       ns.exec(script, hostname, threads);
       ++i;
+      await ns.sleep(1000);
     }
   }
 }
