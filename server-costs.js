@@ -3,8 +3,7 @@ export async function main(ns) {
   const serverLimit = ns.getPurchasedServerLimit();
   const maxRam = ns.getPurchasedServerMaxRam();
   const myMoney = ns.nFormat(ns.getServerMoneyAvailable("home"), "0a");
-  let i;
-  for (i = 1; i <= serverLimit; i++) {
+  for (let i = 1; i <= serverLimit; i++) {
     const purchaseCostServer = ns.getPurchasedServerCost(Math.pow(2, i));
     const purchaseCostAllServers = purchaseCostServer * serverLimit;
     ns.tprint(
