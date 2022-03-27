@@ -6,7 +6,7 @@ function printResults(ns, program, portsOpen) {
 }
 
 export async function main(ns) {
-  const nodeObjects = getConnectedNodes(ns);
+  const nodeObjects = ns.getConnectedNodes(ns);
   const sshPortOpen = [];
   const ftpPortOpen = [];
   const smtpPortOpen = [];
