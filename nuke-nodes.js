@@ -1,13 +1,12 @@
-import { getConnectedNodes } from "./utils.js";
-import { nodeListToObj } from "./utils.js";
-/** @param {NS} ns **/
+import { getConnectedNodes } from "./old-scripts/utils.js";
+
+/** @param {import(".").NS } ns */
 function printResults(ns, program, portsOpen) {
   ns.tprint(`Opened ${program} port on nodes: ${portsOpen} `);
 }
 
 export async function main(ns) {
-  const connectedNodes = getConnectedNodes(ns);
-  const nodeObjects = nodeListToObj(ns, connectedNodes);
+  const nodeObjects = getConnectedNodes(ns);
   const sshPortOpen = [];
   const ftpPortOpen = [];
   const smtpPortOpen = [];
