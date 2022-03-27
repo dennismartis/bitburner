@@ -1,4 +1,4 @@
-import { getConnectedNodes } from "./old-scripts/utils.js";
+import { getConnectedNodes } from "./utils.js";
 
 /** @param {import(".").NS } ns */
 function printResults(ns, program, portsOpen) {
@@ -6,7 +6,7 @@ function printResults(ns, program, portsOpen) {
 }
 
 export async function main(ns) {
-  const nodeObjects = ns.getConnectedNodes(ns);
+  const nodeObjects = getConnectedNodes(ns);
   const sshPortOpen = [];
   const ftpPortOpen = [];
   const smtpPortOpen = [];
